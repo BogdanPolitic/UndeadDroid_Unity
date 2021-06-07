@@ -22,8 +22,6 @@ public class Player : MonoBehaviour
         FlipSprite();
         RunV();
         RunH();
-
-        if (CrossPlatformInputManager.GetButtonDown("Jump")) Debug.Log("Button has been pressed");
     }
 
     private void RunH()
