@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UnityStandardAssets.CrossPlatformInput
 {
@@ -7,10 +8,18 @@ namespace UnityStandardAssets.CrossPlatformInput
     {
 
         public string Name;
+        public GameObject text;
 
         void OnEnable()
         {
 
+        }
+
+        private void Update()
+        {
+            ((RectTransform)transform).anchorMin = new Vector2(1 - 0.2f * Screen.height / Screen.width, 0.02f);
+            //text.transform.localScale = Vector3.one * Screen.height / Screen.width;
+            text.GetComponent<Text>().fontSize = 26 * Screen.height / Screen.width;
         }
 
         public void SetDownState()
@@ -40,11 +49,6 @@ namespace UnityStandardAssets.CrossPlatformInput
         public void SetAxisNegativeState()
         {
             CrossPlatformInputManager.SetAxisNegative(Name);
-        }
-
-        public void Update()
-        {
-
         }
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class ProceduralTilemap : MonoBehaviour
 {
@@ -56,6 +57,9 @@ public class ProceduralTilemap : MonoBehaviour
     //public Sprite ch_m1911;
     //public Sprite ch_mp40;
     //public Sprite ch_shotgun;
+    public Sprite ch_shield1;
+    public Sprite ch_shield2;
+    public Sprite ch_shield3;
 
     public Animator animator;
     public RuntimeAnimatorController ch_m1911TriggerAnimCtrl;
@@ -68,7 +72,8 @@ public class ProceduralTilemap : MonoBehaviour
 
     Dictionary<Vector3, ToolType> tools;
     public ToolType currentTool;
-    //Dictionary<ToolType, Sprite> skins;
+    bool isDefensive;
+    Dictionary<ToolType, Sprite> skins;
     Dictionary<ToolType, AnimControllers> animCtrls;
 
     Camera mainCamera;
@@ -88,8 +93,11 @@ public class ProceduralTilemap : MonoBehaviour
     // NU schimba dimensiunea ecranului la runtime !!
     void Start()
     {
-        cellSizeX = grid.cellSize.x;
-        cellSizeY = grid.cellSize.y;
+        int minSize = Mathf.Min(Screen.height, Screen.width);
+        //grid.cellSize = new Vector3(minSize / 1920.0f, minSize / 1000.0f, 0);
+
+        cellSizeX = grid.cellSize.x * transform.localScale.x;
+        cellSizeY = grid.cellSize.y * transform.localScale.y;
 
         mainCamera = FindObjectOfType<Camera>();
 
@@ -112,12 +120,17 @@ public class ProceduralTilemap : MonoBehaviour
         tools[RelativeToTopRight(new Vector3(1, 3, 0))] = ToolType.SHIELD_3;
 
         currentTool = ToolType.M1911;
+        isDefensive = false;
 
-        //skins = new Dictionary<ToolType, Sprite>();
+        skins = new Dictionary<ToolType, Sprite>();
 
         //skins[ToolType.M1911] = ch_m1911;
         //skins[ToolType.MP40] = ch_mp40;
         //skins[ToolType.SHOTGUN] = ch_shotgun;
+        skins[ToolType.SHIELD_1] = ch_shield1;
+        skins[ToolType.SHIELD_2] = ch_shield2;
+        skins[ToolType.SHIELD_3] = ch_shield3;
+
 
         animCtrls = new Dictionary<ToolType, AnimControllers>();
 
@@ -192,21 +205,30 @@ public class ProceduralTilemap : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        //if (Input.GetKeyDown(KeyCode.Space))
+        if (CrossPlatformInputManager.GetButtonDown("Fire") && !isDefensive)
         {
             isTrigger = true;
             triggerStartFrame = Time.frameCount;
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        //if (Input.GetKey(KeyCode.Space))
+        if (!isDefensive)
         {
-            mainCharacter.GetComponent<Animator>().runtimeAnimatorController = animCtrls[currentTool].controllerForTrigger;
-            isTrigger = true;
-        }
-        else
+            if (CrossPlatformInputManager.GetButton("Fire"))
+            {
+                mainCharacter.GetComponent<Animator>().runtimeAnimatorController = animCtrls[currentTool].controllerForTrigger;
+                isTrigger = true;
+            }
+            else
+            {
+                mainCharacter.GetComponent<Animator>().runtimeAnimatorController = animCtrls[currentTool].controllerForNoTrigger;
+                isTrigger = false;
+            }
+        } else
         {
-            mainCharacter.GetComponent<Animator>().runtimeAnimatorController = animCtrls[currentTool].controllerForNoTrigger;
-            isTrigger = false;
+            mainCharacter.GetComponent<SpriteRenderer>().sprite = skins[currentTool];
+            mainCharacter.GetComponent<Animator>().runtimeAnimatorController = null;
         }
 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -218,6 +240,11 @@ public class ProceduralTilemap : MonoBehaviour
         {
             currentTool = tools[mouseCell];
             //mainCharacter.GetComponent<SpriteRenderer>().sprite = skins[tools[mouseCell]];
+            isDefensive = (
+                currentTool == ToolType.SHIELD_1 ||
+                currentTool == ToolType.SHIELD_2 ||
+                currentTool == ToolType.SHIELD_3
+            );
         }
     }
 }

@@ -20,14 +20,15 @@ public class Player : MonoBehaviour
     void Update()
     {
         FlipSprite();
-             RunV();
-       RunH();
+        RunV();
+        RunH();
 
+        if (CrossPlatformInputManager.GetButtonDown("Jump")) Debug.Log("Button has been pressed");
     }
 
     private void RunH()
     {
-        float controlThrow = CrossPlatformInputManager.GetAxis("Horizontal");
+        float controlThrow = CrossPlatformInputManager.GetAxis("Horizontal") / 1.41f;
         Vector2 playerVelocity = new Vector2(controlThrow * runSpeed, myRigidBody.velocity.x);
         myRigidBody.velocity = playerVelocity;
         bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.y) > Mathf.Epsilon;
@@ -35,10 +36,10 @@ public class Player : MonoBehaviour
 
     private void RunV()
     {
-        float controlThrow = CrossPlatformInputManager.GetAxis("Vertical");
+        float controlThrow = CrossPlatformInputManager.GetAxis("Vertical") / 1.41f;
         Vector2 playerVelocity = new Vector2(controlThrow * runSpeed, myRigidBody.velocity.y);
         myRigidBody.velocity = playerVelocity;
-       bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
+        bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
     }
 
     private void FlipSprite()
