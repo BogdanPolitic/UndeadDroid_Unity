@@ -82,7 +82,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -104,7 +104,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -116,7 +116,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -142,9 +142,9 @@ TextureImporter:
       name: Zombie_2_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 2
         y: 108
-        width: 41
+        width: 31
         height: 36
       alignment: 1
       pivot: {x: 0, y: 1}
@@ -163,9 +163,9 @@ TextureImporter:
       name: Zombie_2_1
       rect:
         serializedVersion: 2
-        x: 41
+        x: 48
         y: 108
-        width: 41
+        width: 31
         height: 36
       alignment: 1
       pivot: {x: 0, y: 1}
@@ -184,9 +184,9 @@ TextureImporter:
       name: Zombie_2_2
       rect:
         serializedVersion: 2
-        x: 82
+        x: 93
         y: 108
-        width: 41
+        width: 31
         height: 36
       alignment: 1
       pivot: {x: 0, y: 1}
@@ -205,9 +205,9 @@ TextureImporter:
       name: Zombie_2_3
       rect:
         serializedVersion: 2
-        x: 0
+        x: 2
         y: 72
-        width: 41
+        width: 31
         height: 36
       alignment: 1
       pivot: {x: 0, y: 1}
@@ -226,9 +226,9 @@ TextureImporter:
       name: Zombie_2_4
       rect:
         serializedVersion: 2
-        x: 41
+        x: 48
         y: 72
-        width: 41
+        width: 31
         height: 36
       alignment: 1
       pivot: {x: 0, y: 1}
@@ -247,9 +247,9 @@ TextureImporter:
       name: Zombie_2_5
       rect:
         serializedVersion: 2
-        x: 82
+        x: 93
         y: 72
-        width: 41
+        width: 31
         height: 36
       alignment: 1
       pivot: {x: 0, y: 1}
@@ -268,9 +268,9 @@ TextureImporter:
       name: Zombie_2_6
       rect:
         serializedVersion: 2
-        x: 0
+        x: 2
         y: 36
-        width: 41
+        width: 31
         height: 36
       alignment: 1
       pivot: {x: 0, y: 1}
@@ -289,9 +289,9 @@ TextureImporter:
       name: Zombie_2_7
       rect:
         serializedVersion: 2
-        x: 41
+        x: 48
         y: 36
-        width: 41
+        width: 31
         height: 36
       alignment: 1
       pivot: {x: 0, y: 1}
@@ -310,9 +310,9 @@ TextureImporter:
       name: Zombie_2_8
       rect:
         serializedVersion: 2
-        x: 82
+        x: 93
         y: 36
-        width: 41
+        width: 31
         height: 36
       alignment: 1
       pivot: {x: 0, y: 1}
@@ -331,9 +331,9 @@ TextureImporter:
       name: Zombie_2_9
       rect:
         serializedVersion: 2
-        x: 0
+        x: 2
         y: 0
-        width: 41
+        width: 31
         height: 36
       alignment: 1
       pivot: {x: 0, y: 1}
@@ -352,9 +352,9 @@ TextureImporter:
       name: Zombie_2_10
       rect:
         serializedVersion: 2
-        x: 41
+        x: 48
         y: 0
-        width: 41
+        width: 31
         height: 36
       alignment: 1
       pivot: {x: 0, y: 1}
@@ -373,9 +373,9 @@ TextureImporter:
       name: Zombie_2_11
       rect:
         serializedVersion: 2
-        x: 82
+        x: 93
         y: 0
-        width: 41
+        width: 31
         height: 36
       alignment: 1
       pivot: {x: 0, y: 1}

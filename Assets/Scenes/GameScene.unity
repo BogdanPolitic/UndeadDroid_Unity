@@ -13097,11 +13097,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 9529ecc3d479da5499993355e6c2cb4f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: 9529ecc3d479da5499993355e6c2cb4f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100006, guid: 9529ecc3d479da5499993355e6c2cb4f, type: 3}
       propertyPath: m_IsActive
@@ -13606,7 +13606,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1769263682, guid: f3cca0bb803c5624fab77f36c8c72362, type: 3}
       propertyPath: m_PointLightOuterRadius
-      value: 2.2799945
+      value: 8.42
       objectReference: {fileID: 0}
     - target: {fileID: 1087572646043899914, guid: f3cca0bb803c5624fab77f36c8c72362, type: 3}
       propertyPath: m_RootOrder
