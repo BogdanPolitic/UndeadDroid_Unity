@@ -34,9 +34,9 @@ public class Shooting : MonoBehaviour
         bulletType = new Dictionary<ProceduralTilemap.ToolType, BulletStats>();
         playerOrientation = 1;
 
-        bulletType[ProceduralTilemap.ToolType.M1911] = new BulletStats(bullet_M1911, 40, 15.0f);
-        bulletType[ProceduralTilemap.ToolType.MP40] = new BulletStats(bullet_MP40, 20, 20.0f);
-        bulletType[ProceduralTilemap.ToolType.SHOTGUN] = new BulletStats(bullet_SHOTGUN, 100, 15.0f);
+        bulletType[ProceduralTilemap.ToolType.M1911] = new BulletStats(bullet_M1911, 250, 10.0f);
+        bulletType[ProceduralTilemap.ToolType.MP40] = new BulletStats(bullet_MP40, 250, 20.0f);
+        bulletType[ProceduralTilemap.ToolType.SHOTGUN] = new BulletStats(bullet_SHOTGUN, 250, 10.0f);
     }
 
     void Update()

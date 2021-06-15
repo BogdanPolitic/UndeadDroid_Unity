@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -2188251435907658906}
   m_Layer: 0
   m_Name: Projectile_SHOTGUN
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   direction: 0
+  altTile: {fileID: 0}
 --- !u!50 &8702289720664763935
 Rigidbody2D:
   serializedVersion: 4
@@ -145,4 +146,4 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.03
