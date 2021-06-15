@@ -59,17 +59,17 @@ public class Projectile : MonoBehaviour
         return new Vector3(resX, resY, resZ);
     }
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    Debug.Log("ENEMY===========================================");
-    //    if (collision.gameObject.tag == "Enemy")
-    //    {
-    //        Destroy(collision.gameObject);
-    //    }
-    //}
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy")
+        {
+            Destroy(collision.gameObject);
+        }
+    }
 
     private void FixedUpdate()
     {
+        Debug.Log("aaa");
         if (wallTilemap.GetTile(
             V3ToV3Int(
                 Vec3DividedByVec3(
