@@ -75,4 +75,15 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<EnemyHealth>().hits++;
+            if (collision.gameObject.GetComponent<EnemyHealth>().hits == 3)
+                Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+    }
 }

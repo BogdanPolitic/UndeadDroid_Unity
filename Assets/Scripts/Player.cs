@@ -5,11 +5,13 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] int playerLife = 20;
-    [SerializeField] float runSpeed = 5f;
+    public int playerLife = 100;
+    public float runSpeed = 5f;
 
 
     Rigidbody2D myRigidBody;
+    public HealthBar healthBar;
+    public GameObject gameWonImage;
 
     void Start()
     {
@@ -19,9 +21,16 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if ((transform.position.x >= 6.3f && transform.position.x <= 8.7f) && (transform.position.y >= 5.3f && transform.position.y <= 7.7f))
+        {
+            gameWonImage.SetActive(true);
+        } else
+            gameWonImage.SetActive(false);
+
         FlipSprite();
         RunV();
         RunH();
+        healthBar.SetHealth(playerLife);
     }
 
     private void RunH()
