@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -11,21 +12,20 @@ public class Player : MonoBehaviour
 
     Rigidbody2D myRigidBody;
     public HealthBar healthBar;
-    public GameObject gameWonImage;
+    public GameObject gameWonObject;
+    
 
-    void Start()
+    void Awake()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
-
     }
 
     void Update()
     {
         if ((transform.position.x >= 6.3f && transform.position.x <= 8.7f) && (transform.position.y >= 5.3f && transform.position.y <= 7.7f))
-        {
-            gameWonImage.SetActive(true);
-        } else
-            gameWonImage.SetActive(false);
+            gameWonObject.SetActive(true);
+        else
+            gameWonObject.SetActive(false);
 
         FlipSprite();
         RunV();
